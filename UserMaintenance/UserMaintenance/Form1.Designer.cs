@@ -32,8 +32,8 @@ namespace UserMaintenance
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.labelLastName = new System.Windows.Forms.Label();
             this.labelFirstName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxLastName = new System.Windows.Forms.TextBox();
+            this.textBoxFirstName = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -63,19 +63,19 @@ namespace UserMaintenance
             this.labelFirstName.TabIndex = 2;
             this.labelFirstName.Text = "label2";
             // 
-            // textBox1
+            // textBoxLastName
             // 
-            this.textBox1.Location = new System.Drawing.Point(345, 10);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.textBoxLastName.Location = new System.Drawing.Point(345, 10);
+            this.textBoxLastName.Name = "textBoxLastName";
+            this.textBoxLastName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLastName.TabIndex = 3;
             // 
-            // textBox2
+            // textBoxFirstName
             // 
-            this.textBox2.Location = new System.Drawing.Point(346, 44);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.textBoxFirstName.Location = new System.Drawing.Point(346, 44);
+            this.textBoxFirstName.Name = "textBoxFirstName";
+            this.textBoxFirstName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFirstName.TabIndex = 4;
             // 
             // btnAdd
             // 
@@ -85,6 +85,7 @@ namespace UserMaintenance
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "button1";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // Form1
             // 
@@ -92,8 +93,8 @@ namespace UserMaintenance
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 346);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxFirstName);
+            this.Controls.Add(this.textBoxLastName);
             this.Controls.Add(this.labelFirstName);
             this.Controls.Add(this.labelLastName);
             this.Controls.Add(this.listBox1);
@@ -109,8 +110,8 @@ namespace UserMaintenance
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label labelLastName;
         private System.Windows.Forms.Label labelFirstName;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxLastName;
+        private System.Windows.Forms.TextBox textBoxFirstName;
         private System.Windows.Forms.Button btnAdd;
     }
 }
