@@ -20,6 +20,7 @@ namespace UserMaintenance
             labelFullName.Text = Resource1.FullName;
             btnAdd.Text = Resource1.Add;
             buttonWriteToFile.Text = Resource1.WriteToFile;
+            buttonDelete.Text = Resource1.Delete;
 
             listBox1.DataSource = users;
             listBox1.ValueMember = "ID";
@@ -46,9 +47,15 @@ namespace UserMaintenance
             MessageBox.Show(sf.FileName);
             foreach (var user in users)
             {
-                sw.WriteLine(user.ID + ": " + user.FullName);
+                sw.WriteLine(user.ID.ToString() + ": " + user.FullName);
             }
             sw.Close();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            var selectedUser = (Entities.User)listBox1.SelectedItem;
+            users.Remove(selectedUser);
         }
     }
 }
