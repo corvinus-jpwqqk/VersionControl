@@ -29,6 +29,7 @@ namespace week05
             List<decimal> Nyereségek = new List<decimal>();
             int intervalum = 30;
             DateTime kezdőDátum = (from x in ticks select x.TradingDay).Min();
+            var dolog = from x in ticks select x.TradingDay;
             DateTime záróDátum = new DateTime(2016, 12, 30);
             TimeSpan z = záróDátum - kezdőDátum;
             for (int i = 0; i < z.Days - intervalum; i++)
@@ -119,15 +120,15 @@ namespace week05
             sf.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
             if (sf.ShowDialog() == DialogResult.OK)
             {
-                StreamWriter sw = new StreamWriter(sf.FileName);
-                sw.WriteLine("Időszak - Nyereség");
-                for (int i = 0; i < earnings.Count; i++)
+                using (StreamWriter sw = new StreamWriter(sf.FileName))
                 {
-                    sw.WriteLine(i.ToString() + " - " + earnings[i]);
+                    sw.WriteLine("Időszak\tNyereség");
+                    for (int i = 0; i < earnings.Count; i++)
+                    {
+                        sw.WriteLine((i + 1).ToString() + "\t" + earnings[i]);
+                    }
                 }
-                sw.Close();
             }
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
