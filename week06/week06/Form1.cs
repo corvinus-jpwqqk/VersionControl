@@ -22,24 +22,17 @@ namespace week06
         public Form1()
         {
             InitializeComponent();
-        }
-        private void RefreshData()
-        {
-            string currency = (string)comboBox1.SelectedItem;
-            string startDate = dateTimeFrom.Value.ToString();
-            string endDate = dateTimeTo.Value.ToString();
-            Rates.Clear();
-            string result = GetData(currency, startDate, endDate);
+            string result = GetData();
             ProcessData(result);
             CreateChart();
         }
-        private string GetData(string currency, string startDate, string endDate)
+        private string GetData()
         {
             MNBArfolyamServiceSoapClient mnbService = new MNBArfolyamServiceSoapClient();
             GetExchangeRatesRequestBody request = new GetExchangeRatesRequestBody();
-            request.currencyNames = currency;
-            request.startDate = startDate;
-            request.endDate = endDate;
+            request.currencyNames = "EUR";
+            request.startDate = "2020-01-01";
+            request.endDate = "2020-06-30";
             var response = mnbService.GetExchangeRates(request);
             string result = response.GetExchangeRatesResult;
             return result;
@@ -78,21 +71,6 @@ namespace week06
             chartRateData.ChartAreas[0].AxisY.IsStartedFromZero = false;
             chartRateData.Legends[0].Enabled = false;
 
-        }
-
-        private void dateTimeFrom_ValueChanged(object sender, EventArgs e)
-        {
-            RefreshData();
-        }
-
-        private void dateTimeTo_ValueChanged(object sender, EventArgs e)
-        {
-            RefreshData();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            RefreshData();
         }
     }
 
