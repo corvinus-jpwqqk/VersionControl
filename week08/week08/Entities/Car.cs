@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using week08.Abstractions;
 
 namespace week08.Entities
@@ -14,6 +15,11 @@ namespace week08.Entities
         {
             Image imageFile = Image.FromFile("Images/car.png");
             gIn.DrawImage(imageFile, new Rectangle(0, 0, this.Width, this.Height));
+        }
+
+        protected override void ToyClick()
+        {
+            MessageBox.Show("Clicked on Car");
         }
     }
 }

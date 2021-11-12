@@ -12,13 +12,22 @@ namespace week08.Entities
     class Ball : Toy
     {
         public SolidBrush BallColor { get; private set; }
+        public bool directionRight;
         public Ball(Color color)
         {
             BallColor = new SolidBrush(color);
+            directionRight = true;
         }
         protected override void DrawImage(Graphics gIn)
         {
             gIn.FillEllipse(BallColor, 0, 0, this.Width, this.Height);
+        }
+       
+        protected override void ToyClick()
+        {
+            this.BallColor = new SolidBrush(Color.White);
+            Invalidate();
+            MessageBox.Show("Clicked on Ball");
         }
     }
 }

@@ -34,7 +34,7 @@ namespace week08
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
-            Toy newToy = Factory.CreateNew();
+            Toy newToy = Factory.CreateNew(); 
             _toys.Add(newToy);
             panel1.Controls.Add(newToy);
             newToy.Left = -newToy.Width;
@@ -43,12 +43,12 @@ namespace week08
         private void conveyorTimer_Tick(object sender, EventArgs e)
         {
             var firstBallPos = 0;
-            foreach(var ball in _toys)
+            foreach(var movetoy in _toys)
             {
-                ball.MoveToy();
-                if (ball.Left > firstBallPos)
+                movetoy.MoveToy();
+                if (movetoy.Left > firstBallPos)
                 {
-                    firstBallPos = ball.Left;
+                    firstBallPos = movetoy.Left;
                 }
             }
             if (firstBallPos > 1000)
@@ -70,7 +70,6 @@ namespace week08
             {
                 BallColor = buttonBallColor.BackColor
             };
-            
         }
 
         private void DisplayNext()
@@ -101,7 +100,7 @@ namespace week08
             {
                 Color1 = buttonPresentColor1.BackColor,
                 Color2 = buttonPresentColor2.BackColor
-        };
+            };
         }
 
         private void buttonPresentColor1_Click(object sender, EventArgs e)
