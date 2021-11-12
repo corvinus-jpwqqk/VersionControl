@@ -8,18 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using week08.Entities;
+using week08.Abstractions;
 
 namespace week08
 {
     public partial class Form1 : Form
     {
-        List<Ball> _balls = new List<Ball>();
-        private BallFactory _factory;
+        List<Toy> _toys = new List<Toy>();
+        private IToyFactory _factory;
+        Toy _nextToy;
         
-        private BallFactory Factory
+        private IToyFactory Factory
         {
             get { return _factory; }
-            set { _factory = value; }
+            set { _factory = value;
+                DisplayNext();
+            }
         }
         
         public Form1()
@@ -30,18 +34,18 @@ namespace week08
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
-            Ball newBall = Factory.CreateNew();
-            _balls.Add(newBall);
-            panel1.Controls.Add(newBall);
-            newBall.Left = -newBall.Width;
+            Toy newToy = Factory.CreateNew();
+            _toys.Add(newToy);
+            panel1.Controls.Add(newToy);
+            newToy.Left = -newToy.Width;
         }
 
         private void conveyorTimer_Tick(object sender, EventArgs e)
         {
             var firstBallPos = 0;
-            foreach(var ball in _balls)
+            foreach(var ball in _toys)
             {
-                ball.MoveBall();
+                ball.MoveToy();
                 if (ball.Left > firstBallPos)
                 {
                     firstBallPos = ball.Left;
@@ -49,10 +53,30 @@ namespace week08
             }
             if (firstBallPos > 1000)
             {
-                var deleteBall = _balls[0];
+                var deleteBall = _toys[0];
                 panel1.Controls.Remove(deleteBall);
-                _balls.Remove(deleteBall);
+                _toys.Remove(deleteBall);
             }
+        }
+
+        private void buttonCar_Click(object sender, EventArgs e)
+        {
+            Factory = new CarFactory();
+        }
+
+        private void buttonBall_Click(object sender, EventArgs e)
+        {
+            Factory = new BallFactory();
+        }
+
+        private void DisplayNext()
+        {
+            if (_nextToy != null)
+                Controls.Remove(_nextToy);
+            _nextToy = Factory.CreateNew();
+            _nextToy.Top = label1.Top + label1.Height + 20;
+            _nextToy.Left = label1.Left;
+            Controls.Add(_nextToy);
         }
     }
 }
