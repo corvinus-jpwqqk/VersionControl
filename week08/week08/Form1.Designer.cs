@@ -36,7 +36,10 @@ namespace week08
             this.buttonCar = new System.Windows.Forms.Button();
             this.buttonBall = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonColor = new System.Windows.Forms.Button();
+            this.buttonBallColor = new System.Windows.Forms.Button();
+            this.buttonPresent = new System.Windows.Forms.Button();
+            this.buttonPresentColor1 = new System.Windows.Forms.Button();
+            this.buttonPresentColor2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,27 +84,60 @@ namespace week08
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(174, 310);
+            this.label1.Location = new System.Drawing.Point(759, 311);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 3;
             // 
-            // buttonColor
+            // buttonBallColor
             // 
-            this.buttonColor.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonColor.Location = new System.Drawing.Point(1069, 278);
-            this.buttonColor.Name = "buttonColor";
-            this.buttonColor.Size = new System.Drawing.Size(130, 50);
-            this.buttonColor.TabIndex = 4;
-            this.buttonColor.UseVisualStyleBackColor = false;
-            this.buttonColor.Click += new System.EventHandler(this.buttonColor_Click);
+            this.buttonBallColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.buttonBallColor.Location = new System.Drawing.Point(149, 334);
+            this.buttonBallColor.Name = "buttonBallColor";
+            this.buttonBallColor.Size = new System.Drawing.Size(130, 50);
+            this.buttonBallColor.TabIndex = 4;
+            this.buttonBallColor.UseVisualStyleBackColor = false;
+            this.buttonBallColor.Click += new System.EventHandler(this.buttonColor_Click);
+            // 
+            // buttonPresent
+            // 
+            this.buttonPresent.Location = new System.Drawing.Point(13, 388);
+            this.buttonPresent.Name = "buttonPresent";
+            this.buttonPresent.Size = new System.Drawing.Size(130, 50);
+            this.buttonPresent.TabIndex = 5;
+            this.buttonPresent.Text = "PRESENT";
+            this.buttonPresent.UseVisualStyleBackColor = true;
+            this.buttonPresent.Click += new System.EventHandler(this.buttonPresent_Click);
+            // 
+            // buttonPresentColor1
+            // 
+            this.buttonPresentColor1.BackColor = System.Drawing.Color.Maroon;
+            this.buttonPresentColor1.Location = new System.Drawing.Point(149, 388);
+            this.buttonPresentColor1.Name = "buttonPresentColor1";
+            this.buttonPresentColor1.Size = new System.Drawing.Size(130, 50);
+            this.buttonPresentColor1.TabIndex = 6;
+            this.buttonPresentColor1.UseVisualStyleBackColor = false;
+            this.buttonPresentColor1.Click += new System.EventHandler(this.buttonPresentColor1_Click);
+            // 
+            // buttonPresentColor2
+            // 
+            this.buttonPresentColor2.BackColor = System.Drawing.Color.Yellow;
+            this.buttonPresentColor2.Location = new System.Drawing.Point(285, 388);
+            this.buttonPresentColor2.Name = "buttonPresentColor2";
+            this.buttonPresentColor2.Size = new System.Drawing.Size(130, 50);
+            this.buttonPresentColor2.TabIndex = 7;
+            this.buttonPresentColor2.UseVisualStyleBackColor = false;
+            this.buttonPresentColor2.Click += new System.EventHandler(this.buttonPresentColor2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1211, 450);
-            this.Controls.Add(this.buttonColor);
+            this.Controls.Add(this.buttonPresentColor2);
+            this.Controls.Add(this.buttonPresentColor1);
+            this.Controls.Add(this.buttonPresent);
+            this.Controls.Add(this.buttonBallColor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonBall);
             this.Controls.Add(this.buttonCar);
@@ -121,7 +157,10 @@ namespace week08
         private System.Windows.Forms.Button buttonCar;
         private System.Windows.Forms.Button buttonBall;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonColor;
+        private System.Windows.Forms.Button buttonBallColor;
+        private System.Windows.Forms.Button buttonPresent;
+        private System.Windows.Forms.Button buttonPresentColor1;
+        private System.Windows.Forms.Button buttonPresentColor2;
     }
 }
 

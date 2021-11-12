@@ -29,7 +29,7 @@ namespace week08
         public Form1()
         {
             InitializeComponent();
-            Factory = new BallFactory();
+            Factory = new CarFactory();
         }
 
         private void createTimer_Tick(object sender, EventArgs e)
@@ -66,7 +66,11 @@ namespace week08
 
         private void buttonBall_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory
+            {
+                BallColor = buttonBallColor.BackColor
+            };
+            
         }
 
         private void DisplayNext()
@@ -85,6 +89,39 @@ namespace week08
             ColorDialog cd = new ColorDialog();
             cd.Color = button.BackColor;
             if(cd.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            button.BackColor = cd.Color;
+        }
+
+        private void buttonPresent_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory
+            {
+                Color1 = buttonPresentColor1.BackColor,
+                Color2 = buttonPresentColor2.BackColor
+        };
+        }
+
+        private void buttonPresentColor1_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            ColorDialog cd = new ColorDialog();
+            cd.Color = button.BackColor;
+            if (cd.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            button.BackColor = cd.Color;
+        }
+
+        private void buttonPresentColor2_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            ColorDialog cd = new ColorDialog();
+            cd.Color = button.BackColor;
+            if (cd.ShowDialog() != DialogResult.OK)
             {
                 return;
             }
